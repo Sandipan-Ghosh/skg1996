@@ -6,35 +6,34 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    class A {
-        public void mult(ref int a)
+    class MultiplyClassA {
+        public void Mult(ref int a)
         {
             a *= 2;
         }
     }
-    class B {
-        public int mult(ref int b)
+    class MultiplyClassB {
+        public int Mult(ref int b)
         {
             b *= 3;
             return b;
         }
     }
-    class c
+    class MultiplyClassC
     {
-        public void mult(ref int c)
+        public void Mult(ref int c)
         {
             c *= 5;
         }
     }
-    class D
+    class BaseClass
     {
         static void Main(string[] args)
         {
-            var i = 1;
-            int div, c1 = 0, c2 = 0, c3 = 0, initial = 1;
-            A classA = new A();
-            B classB = new B();
-            c classC = new c();
+            int c1 = 0, c2 = 0, c3 = 0, initial = 1;
+            MultiplyClassA classA = new MultiplyClassA();
+            MultiplyClassB classB = new MultiplyClassB();
+            MultiplyClassC classC = new MultiplyClassC();
             Console.WriteLine("Enter New Value");
             var newvalue = int.Parse(Console.ReadLine());
             var temp = newvalue;
@@ -43,21 +42,21 @@ namespace Assignment
                 if (temp % 2 == 0)
                 {
                     temp = temp / 2;
-                    classA.mult(ref initial);
+                    classA.Mult(ref initial);
                     c1++;
                     //Console.WriteLine(div);
                 }
                 else if (temp % 3 == 0)
                 {
                     temp = temp / 3;
-                    classB.mult(ref initial);
+                    classB.Mult(ref initial);
                     c2++;
                     //Console.WriteLine(div);
                 }
                 else if (temp % 5 == 0)
                 {
                     temp = temp / 5;
-                    classC.mult(ref initial);
+                    classC.Mult(ref initial);
                     c3++;
                     //Console.WriteLine(div);
 
