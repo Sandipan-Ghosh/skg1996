@@ -10,6 +10,8 @@ namespace Assignment_3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter the no of rows columns and turns in this format");
+            Console.WriteLine("rows columns turns");
             string input = Console.ReadLine();
             string[] arr = input.Split(' ');
             int row = Convert.ToInt32(arr[0]);
@@ -18,7 +20,7 @@ namespace Assignment_3
 
             int[,] matrix = new int[row, col];
 
-
+            Console.WriteLine("Enter the elements of the matrix");
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -27,6 +29,7 @@ namespace Assignment_3
 
             RotateAntiClockwiseByLayer(matrix, rotations);
 
+            Console.WriteLine("The matrix after rotating looks like");
             for (int i = 0; i < row; i++)
             {
                 string s = "";

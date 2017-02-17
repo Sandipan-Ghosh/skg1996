@@ -1,0 +1,62 @@
+struct Employee
+{
+    var employeeName:String
+    var employeeId:Int
+    
+    var name:String
+    {
+        get{
+            return employeeName
+        }
+        set(namevalue)
+        {
+            name=namevalue
+        }
+    }
+    var id:Int
+    {
+        get{
+            return employeeId
+        }
+        set(idvalue)
+        {
+            id=idvalue
+        }
+    }
+}
+
+struct EmployeeAdmin{
+    var employeeArray = [Employee]()
+    
+    mutating func addEmployee(employee : Employee){
+        
+        var employeeVerification : Bool = true
+        
+        for emp in employeeArray {
+            if emp.id == employee.id{
+                print("Employee ID exist");
+                employeeVerification = false
+            }
+        }
+        
+        if employeeVerification {
+            employeeArray.append(employee)
+        }
+    }
+    
+    mutating func removeEmployee(empID : Int){
+        
+        var index : Int = 0
+        
+        for emp in employeeArray {
+            
+            if emp.id == empID { 
+                employeeArray.remove(at: index)
+            }
+            
+            index += 1
+        }
+        
+    }
+    
+}

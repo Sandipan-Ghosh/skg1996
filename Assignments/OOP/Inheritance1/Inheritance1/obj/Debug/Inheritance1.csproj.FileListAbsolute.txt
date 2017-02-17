@@ -1,6 +1,0 @@
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\bin\Debug\Inheritance1.exe.config
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\bin\Debug\Inheritance1.exe
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\bin\Debug\Inheritance1.pdb
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\obj\Debug\Inheritance1.csprojResolveAssemblyReference.cache
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\obj\Debug\Inheritance1.exe
-c:\users\sandipan\documents\visual studio 2015\Projects\Inheritance1\Inheritance1\obj\Debug\Inheritance1.pdb

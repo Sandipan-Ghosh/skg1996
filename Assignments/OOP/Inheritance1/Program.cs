@@ -6,10 +6,27 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    class A { public void mult(ref int a) { a *= 2; } }
-    class B { public int mult(ref int b) { b *= 3; return b; } }
-    class c { public void mult(ref int c) { c *= 5; } }
-    class Program
+    class A {
+        public void mult(ref int a)
+        {
+            a *= 2;
+        }
+    }
+    class B {
+        public int mult(ref int b)
+        {
+            b *= 3;
+            return b;
+        }
+    }
+    class c
+    {
+        public void mult(ref int c)
+        {
+            c *= 5;
+        }
+    }
+    class D
     {
         static void Main(string[] args)
         {
