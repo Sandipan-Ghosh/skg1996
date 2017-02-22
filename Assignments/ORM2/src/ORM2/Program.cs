@@ -13,61 +13,80 @@ namespace ORM2
             using (var db = new BloggingContext())
             {
                 db.Database.Migrate();
-                 db.ProductModels.Add(new ProductModel
-                 {
+                db.ProductModels.Add(new ProductModel
+                {
 
-                     Name = "Tressemme",
-                     Description = "Shampoo For All",
-                     HomePageUrl = "https://www.tressemme.com",
-                 });
-                 db.ProductModels.Add(new ProductModel
-                 {
+                    Name = "Tressemme",
+                    Description = "Shampoo For All",
+                    HomePageUrl = "https://www.tressemme.com",
+                });
+                var count = db.SaveChanges();
+                db.ProductModels.Add(new ProductModel
+                {
 
-                     Name = "Dove",
-                     Description = "Female Shampoo",
-                     HomePageUrl = "https://www.dove.com",
-                 });
-                 db.ProductModels.Add(new ProductModel
-                 {
+                    Name = "Dove",
+                    Description = "Female Shampoo",
+                    HomePageUrl = "https://www.dove.com",
+                });
+                count = db.SaveChanges();
+                db.ProductModels.Add(new ProductModel
+                {
 
-                     Name = "Clear",
-                     Description = "Male Shampoo",
-                     HomePageUrl = "https://www.clear.com",
-                 });
-                 db.UpdateModels.Add(new UpdateModel
-                 {
+                    Name = "Clear",
+                    Description = "Male Shampoo",
+                    HomePageUrl = "https://www.clear.com",
+                });
+                count = db.SaveChanges();
+                db.UpdateModels.Add(new UpdateModel
+                {
 
-                     Id=1,
-                     Name = "tressemme-advanced",
-                     Description = "Shampoo For Both",
-                 });
-                 db.UpdateModels.Add(new UpdateModel
-                 {
-                     Id=3,
-                     Name = "Clear-advanced",
-                     Description = "Male Shampoo",
-                 });
-                 db.UpdateModels.Add(new UpdateModel
-                 {
 
-                     Id = 2,
-                     Name = "dove-advanced",
-                     Description = "Female Shampoo",
-                 });
+                    Name = "tressemme-advanced",
+                    Description = "Shampoo For Both",
+                    Id=1
+                });
+                count = db.SaveChanges();
+                db.UpdateModels.Add(new UpdateModel
+                {
+
+                    Name = "Clear-advanced",
+                    Description = "Male Shampoo",
+                    Id=2
+                });
+                count = db.SaveChanges();
+                db.UpdateModels.Add(new UpdateModel
+                {
+
+
+                    Name = "dove-advanced",
+                    Description = "Female Shampoo",
+                    Id=3
+                });
+                count = db.SaveChanges();
+
+            }
+            using (var db = new BloggingContext())
+            {
                 db.ProductModels.Update(new ProductModel
                 {
-                    Id = 8,
+                    Id = 1,
                     Name = "head & shoulders",
                     Description = "Shampoo for head and shoulders",
-                    HomePageUrl="https://www.Headandshoulders.com"
+                    HomePageUrl = "https://www.Headandshoulders.com"
                 });
+                var count = db.SaveChanges();
                 db.UpdateModels.Update(new UpdateModel
-                 {
-                     UpdateId = 2,
-                     Id=2,
-                     Name = "dove_child_special",
-                     Description = "Baby Shampoo",
-                 });
+                {
+                    UpdateId = 2,
+                    Id = 2,
+                    Name = "dove_child_special",
+                    Description = "Baby Shampoo",
+                });
+                count = db.SaveChanges();
+
+            }
+            using (var db = new BloggingContext())
+            {
                 db.UpdateModels.Remove(new UpdateModel
                 {
                     UpdateId = 2,
@@ -75,23 +94,18 @@ namespace ORM2
                     Name = "dove_child_special",
                     Description = "Baby Shampoo",
                 });
+                var count = db.SaveChanges();
                 db.ProductModels.Remove(new ProductModel
                 {
                     Id = 2,
-                    //Name = "Dove",
-                    //Description = "Female Shampoo",
+                    Name = "Dove",
+                    Description = "Female Shampoo",
                 });
+                count = db.SaveChanges();
 
-
-                var count = db.SaveChanges();
-                Console.WriteLine("{0} record saved to detabase", count);
-                Console.WriteLine();
-                Console.WriteLine("All products in database");
-                foreach(var ProductModel in db.ProductModels)
-                {
-                    Console.WriteLine(" - {0}", ProductModel.HomePageUrl);
-                }
+            }
+            Console.Read();
             }
         }
     }
-}
+
