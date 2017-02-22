@@ -13,7 +13,7 @@ namespace ORM2
             using (var db = new BloggingContext())
             {
                 db.Database.Migrate();
-                /* db.ProductModels.Add(new ProductModel
+                 db.ProductModels.Add(new ProductModel
                  {
 
                      Name = "Tressemme",
@@ -53,34 +53,34 @@ namespace ORM2
                      Id = 2,
                      Name = "dove-advanced",
                      Description = "Female Shampoo",
-                 });*/
-                /*db.ProductModels.Update(new ProductModel
+                 });
+                db.ProductModels.Update(new ProductModel
                 {
                     Id = 8,
                     Name = "head & shoulders",
                     Description = "Shampoo for head and shoulders",
                     HomePageUrl="https://www.Headandshoulders.com"
-                });*/
-                /* db.UpdateModels.Update(new UpdateModel
+                });
+                db.UpdateModels.Update(new UpdateModel
                  {
                      UpdateId = 2,
                      Id=2,
                      Name = "dove_child_special",
                      Description = "Baby Shampoo",
-                 });*/
-                /*db.UpdateModels.Remove(new UpdateModel
+                 });
+                db.UpdateModels.Remove(new UpdateModel
                 {
                     UpdateId = 2,
                     Id = 2,
                     Name = "dove_child_special",
                     Description = "Baby Shampoo",
-                });*/
-               /* db.ProductModels.Remove(new ProductModel
+                });
+                db.ProductModels.Remove(new ProductModel
                 {
                     Id = 2,
                     //Name = "Dove",
                     //Description = "Female Shampoo",
-                });*/
+                });
 
 
                 var count = db.SaveChanges();
