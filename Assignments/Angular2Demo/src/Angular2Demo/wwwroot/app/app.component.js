@@ -18,13 +18,13 @@ var AppComponent = (function () {
         this.isShown = true;
         this.employee = new Employee();
         this.employees = new Array();
-        this.http.get("http://localhost:5000/api/Employees").subscribe(function (x) {
+        this.http.get("/api/Employees").subscribe(function (x) {
             _this.employees = x.json();
         });
     }
     AppComponent.prototype.onClick = function () {
         var _this = this;
-        this.http.post("http://localhost:5000/api/Employees", this.employee).subscribe(function (x) {
+        this.http.post("/api/Employees", this.employee).subscribe(function (x) {
             if (x.ok)
                 _this.employees.push(x.json());
             _this.employee = new Employee();
@@ -32,13 +32,13 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onFilter = function (searchString) {
         var _this = this;
-        this.http.get("http://localhost:5000/api/Employees/search?name=" + searchString).subscribe(function (x) {
+        this.http.get("/api/Employees/search?name=" + searchString).subscribe(function (x) {
             _this.employees = x.json();
         });
     };
     AppComponent.prototype.onDelete = function (emp) {
         var _this = this;
-        this.http.delete("http://localhost:5000/api/Employees/" + emp.Id).subscribe(function (x) {
+        this.http.delete("/api/Employees/" + emp.Id).subscribe(function (x) {
             _this.employees.splice(_this.employees.indexOf(emp), 1);
         });
     };
@@ -49,7 +49,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onUpdate = function () {
         var _this = this;
-        this.http.put("http://localhost:5000/api/Employees/" + this.employee.Id, this.employee).subscribe(function (x) {
+        this.http.put("/api/Employees/" + this.employee.Id, this.employee).subscribe(function (x) {
             _this.isShown = true;
             _this.employee = new Employee();
         });

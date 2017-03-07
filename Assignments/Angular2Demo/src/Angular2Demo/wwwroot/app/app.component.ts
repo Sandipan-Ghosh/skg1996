@@ -12,12 +12,12 @@ export class AppComponent {
     employees: Employee[] = new Array<Employee>();
     searchString: string;
     constructor(public http: Http) {
-        this.http.get("http://localhost:5000/api/Employees").subscribe((x) => {
+        this.http.get("/api/Employees").subscribe((x) => {
             this.employees = x.json();
         });
     }
         onClick() {
-            this.http.post("http://localhost:5000/api/Employees", this.employee).subscribe((x) => {
+            this.http.post("/api/Employees", this.employee).subscribe((x) => {
                 if (x.ok)
                     this.employees.push(x.json())
                     this.employee = new Employee();
@@ -25,7 +25,7 @@ export class AppComponent {
             
     }
         onFilter(searchString:string) {
-            this.http.get("http://localhost:5000/api/Employees/search?name=" + searchString).subscribe((x) => {
+            this.http.get("/api/Employees/search?name=" + searchString).subscribe((x) => {
                 this.employees = x.json();
             });
 
@@ -33,7 +33,7 @@ export class AppComponent {
 
         onDelete(emp: Employee) {
 
-            this.http.delete("http://localhost:5000/api/Employees/" + emp.Id).subscribe((x) => {
+            this.http.delete("/api/Employees/" + emp.Id).subscribe((x) => {
                 this.employees.splice(this.employees.indexOf(emp), 1);
             });
         }
@@ -43,7 +43,7 @@ export class AppComponent {
             this.employee = emp;
         }
         onUpdate() {
-            this.http.put("http://localhost:5000/api/Employees/" + this.employee.Id, this.employee).subscribe((x) => {
+            this.http.put("/api/Employees/" + this.employee.Id, this.employee).subscribe((x) => {
                 this.isShown = true;
                 this.employee = new Employee();
             });

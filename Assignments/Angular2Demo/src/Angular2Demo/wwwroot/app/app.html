@@ -13,9 +13,9 @@
 
 <table style="width:100%">
     <tr *ngFor="let emp of employees">
-        <td>{{emp.Id}}</td>
-        <td>{{emp.Name}}</td>
-        <td>{{emp.Address}}</td>
+        <td>Id = {{emp.Id}}</td>
+        <td>Name = {{emp.Name}}</td>
+        <td>Address = {{emp.Address}}</td>
         <td><input type="button" value="Delete" (click)="onDelete(emp)"></td>
         <td><input type="button" value="Edit" (click)="onEdit(emp)"></td>
 
