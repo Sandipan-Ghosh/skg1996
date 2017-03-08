@@ -18,8 +18,10 @@ var AppComponent = (function () {
         this.isShown = true;
         this.employee = new Employee();
         this.employees = new Array();
+        this.employeesTemp = new Array();
         this.http.get("/api/Employees").subscribe(function (x) {
             _this.employees = x.json();
+            _this.employeesTemp = _this.employees;
         });
     }
     AppComponent.prototype.onClick = function () {
@@ -35,6 +37,11 @@ var AppComponent = (function () {
         this.http.get("/api/Employees/search?name=" + searchString).subscribe(function (x) {
             _this.employees = x.json();
         });
+        //if (!(searchString === "")) {
+        //    this.employees = this.employeesTemp.filter(x => x.Name.includes(searchString) || x.Address.includes(searchString));
+        //}
+        //else
+        //    this.employees = this.employeesTemp;
     };
     AppComponent.prototype.onDelete = function (emp) {
         var _this = this;

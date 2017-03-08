@@ -11,13 +11,24 @@
 <input placeholder="Search" [(ngModel)]="searchString" (keyup)="onFilter(searchString)">
 
 
-<table style="width:100%">
-    <tr *ngFor="let emp of employees">
+<table class="table" style="width:100%">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    <tr style="text-align:center" *ngFor="let emp of employees|paginate: {itemsPerPage: 5, currentPage:page, id: '1'};">
         <td>Id = {{emp.Id}}</td>
         <td>Name = {{emp.Name}}</td>
         <td>Address = {{emp.Address}}</td>
         <td><input type="button" value="Delete" (click)="onDelete(emp)"></td>
         <td><input type="button" value="Edit" (click)="onEdit(emp)"></td>
-
     </tr>
 </table>
+<pagination-controls (pageChange)="page = $event" id="1"
+                     maxSize="5"
+                     directionLinks="true"
+                     autoHide="true">
+</pagination-controls>`

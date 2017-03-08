@@ -10,10 +10,12 @@ export class AppComponent {
     isShown: boolean = true;
     employee: Employee = new Employee();
     employees: Employee[] = new Array<Employee>();
+    employeesTemp: Employee[] = new Array<Employee>();
     searchString: string;
     constructor(public http: Http) {
         this.http.get("/api/Employees").subscribe((x) => {
             this.employees = x.json();
+            this.employeesTemp = this.employees;
         });
     }
         onClick() {
@@ -28,6 +30,12 @@ export class AppComponent {
             this.http.get("/api/Employees/search?name=" + searchString).subscribe((x) => {
                 this.employees = x.json();
             });
+            //if (!(searchString === "")) {
+
+            //    this.employees = this.employeesTemp.filter(x => x.Name.includes(searchString) || x.Address.includes(searchString));
+            //}
+            //else
+            //    this.employees = this.employeesTemp;
 
         }
 
